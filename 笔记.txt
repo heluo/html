@@ -1,0 +1,13 @@
+html标签
+html 
+head html头
+body  html 体（内容）
+
+
+title 标题
+
+div DIVision 划分 配合css使用
+span
+h1-h5
+p
+a

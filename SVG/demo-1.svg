@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+
+<!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect width="100" height="50"  stroke="black"
+  stroke-width="2" fill="red" />
+</svg>
+ -->
+<svg xmlns="http://www.w3.org/2000/svg" width="600" version="1.1">
+<!--   <rect x="150" y="40" width="500" height="100"
+  style="fill:rgb(0,0,30);stroke-width:5;stroke:rgb(0,0,0);fill-opacity:0.9;stoke-opacity:0.2;rx:20;ry:20;"/>
+  <rect x="100" y="10" width="500" height="100"
+  style="fill:rgb(0,0,100);stroke-width:5;stroke:rgb(0,0,0);fill-opacity:0.9;stoke-opacity:0.2;rx:20;ry:20;"/>
+  <rect x="200" y="100" width="500" height="100"
+  style="fill:rgb(200,255,255);stroke-width:5;stroke:rgb(0,0,0);fill-opacity:0.9;stoke-opacity:0.2;rx:20;ry:20;"/>
+  <ellipse cx="300" cy="100" rx="200" ry="40" fill="purple"/>
+   -->
+  <ellipse cx="240" cy="100" rx="220" ry="30" style="fill:purple"  fill-opacity="0.8" stroke="yellow" stroke-width="2" stoke-opacity="0.5" />
+  <ellipse cx="240" cy="100" rx="190" ry="20" style="fill:lime"  fill-opacity="0.8" stroke="purple" stroke-width="2" stroke-opacity="0.5"/>
+  <ellipse cx="210" cy="45" rx="170" ry="15" style="fill:yellow" fill-opacity="0.8" stroke="lime" stroke-width="2" stroke-opacity="0.5"/>
+  
+</svg>

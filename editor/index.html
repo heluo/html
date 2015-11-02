@@ -1,0 +1,72 @@
+ <!doctype html>
+ <html lang="en">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title>编辑器实现</title>
+	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="js/jquery.simple-color.min.js"></script>
+ </head>
+ <body>
+	<div id="editControls">
+		<a class='click' data-role='bold' href='#'><b>Bold</b></a>
+		<select name="fontSize" data-role="FontSize" class="change" id="fontSize">
+			<option value="5">5</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			
+			<option value="6">6</option>
+			<option value="7">7</option>
+		</select>
+		<input class='simple_color' value='#cc3333'/>
+		<a  class="click" data-role="ForeColor" href="javascript:void(0);">#FF0000</a>
+		<a href="javascript:getContent();">获取内容</a>
+	</div>
+ 	<div id="edit" style='width:800px;height:200px;background:#C0C0C0;' contenteditable>
+	</div>
+	<script>
+
+			$(function() {
+				
+				$('.click').click(function(e) {
+					switch($(this).data('role')) {
+						case 'h1':
+						case 'h2':
+						case 'p':
+							document.execCommand('formatBlock', false, '<' + $(this).data('role') + '>');
+							break;
+						default:
+							document.execCommand($(this).data('role'), false, $(this).text());
+							break;
+					}
+				})
+				//针对字体，颜色等编辑
+				$('.change').change(function(e) {
+				
+				 console.log($(this).val());
+					switch($(this).data('role')) {
+						case 'h1':
+						case 'h2':
+						case 'p':
+							document.execCommand('formatBlock', false, '<' + $(this).data('role') + '>');
+							break;
+						default:
+							document.execCommand($(this).data('role'), false, $(this).val());
+							break;
+					}
+					
+				})
+				
+			});
+
+		
+		
+		function getContent(){
+			var content=$("#edit").html();
+			alert(content.trim());
+		}
+
+	</script>
+ </body>
+ </html>

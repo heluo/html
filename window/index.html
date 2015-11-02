@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹窗</title>
+	<style>
+		body{margin:0;}
+		#container{width:80%;height:800px;margin:0 auto;}
+		#window{width:600px;height:400px;position:absolute;left:25%;top:10%;display:none;background:#ffffff;}
+		.change{background:#D2B8B8;opacity:0.5}
+		ul{margin:0 auto;}
+		ul>li{margin-top:5px;height:40px;list-style:none;}
+		.window-container{width:80%;margin:0 auto;margin-top:40px;}
+	</style>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+</head>
+<body>
+	
+	<div id="container">
+		<button>点击弹窗</button>
+	</div>
+	<div id="window">
+	<div class="window-container">
+	<form action="" >
+		<ul>
+			<li><label for="">市场人员姓名</label><span><input type="text" name="username" value=""></span></li>
+			<li>
+			<label for="">所属部门</label>
+			<span>
+				<select name="department" id="">
+					<option value="">市场一部</option>
+					<option value="">市场二部</option>
+				</select>
+			</span>
+			</li>
+			<li>
+				<label for="">后台权限</label>
+				<span>
+					<select name="" id="">
+						<option value="">一级权限</option>
+						<option value="">二级权限</option>
+					</select>
+				</span>
+			</li>
+			<li><input type="submit" value="提交"></li>
+		</ul>
+	</form>
+	</div>
+	</div>
+</body>
+<script>
+	 $("button:first").click(function(){
+		$("#window").css("display","block");
+		$("#container").addClass("change");
+	})
+</script>
+</html>

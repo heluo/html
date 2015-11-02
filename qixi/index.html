@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>慕课七夕主题</title>
+    <link rel='stylesheet' href='css/style.css' />
+    <link rel='stylesheet' href='css/pageA.css' />
+    <style type="text/css">
+       
+    </style>
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="http://img.mukewang.com/down/55ac9ea30001ace700000000.js"></script>
+    <script type="text/javascript" src="js/swiper.js"></script>
+    <script type="text/javascript" src="js/BoyWalk.js"></script>
+</head>
+
+<body>
+    <div id='content'>
+        <ul class='content-wrap'>
+            <li>
+                <div class="a_background">
+                    <div class="a_background_top"></div>
+                    <div class="a_background_middle"></div>
+                    <div class="a_background_botton"></div>
+                </div>
+				<!-- 云朵 -->
+				<div class="cloudArea">
+                    <div class="cloud cloud1"></div>
+                    <div class="cloud cloud2"></div>
+                </div>
+				
+				<!-- 太阳 -->
+                <div id="sun"></div>
+            </li>
+            <li> 页面2 </li>
+            <li> 页面3 </li>
+        </ul>
+        <div id="boy" class="charector"></div>
+       <div class="button">
+         <button>开始</button>
+       </div>
+    </div>
+</body>
+<script type="text/javascript">
+    $(function() {
+    
+        var container = $("#content");
+        var swipe = Swipe(container);
+    
+			// 页面滚动到指定的位置
+        function scrollTo(time, proportionX) {
+            var distX = container.width() * proportionX;
+            swipe.scrollTo(distX, time);
+        }
+	
+        ////////////////////////////////////////////////////////
+        //=================== 动画处理 ====================== //
+        ////////////////////////////////////////////////////////
+    
+        ///////////////
+        // 小孩走路 //
+        //////////////
+        var boy = BoyWalk();
+    
+        // 开始
+        $("button:first").click(function() {
+		
+				 // 太阳公转
+            $("#sun").addClass('rotation');
+			
+			
+			        // 飘云
+        $(".cloud:first").addClass('cloud1Anim');
+        $(".cloud:last").addClass('cloud2Anim');
+			
+			
+            // 开始第一次走路
+            boy.walkTo(2000, 0.2)
+                .then(function() {
+                    //第一次走路完成
+					scrollTo(50000, 1);
+                    boy.setColoer('red')
+                }).then(function() {
+                    //第二次走
+                    return boy.walkTo(2000, 0.4)
+                }).then(function() {
+                    //第二次走路完成
+                    boy.setColoer('yellow')
+                }).then(function() {
+                    //第三次走路
+                    return boy.walkTo(2000, 0.6)
+                }).then(function() {
+                    //第三次走路完成
+                    boy.setColoer('blue')
+                });
+                  
+        });
+    
+    })
+</script>
+
+</html>

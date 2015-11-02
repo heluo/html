@@ -1,0 +1,85 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<style>
+	
+		body{
+			margin:0;
+			padding:0;
+		}
+	
+		#nav,#content{
+			width:80%;
+			margin:0 auto;
+		}
+		
+		#nav{
+			height:100px;
+		}
+		
+		#content{
+			background:#fff000;
+			height:800px;
+		}
+		
+		#nav ul li{
+			width:100px;
+			float:left;
+			list-style:none;
+		}
+		a{text-decoration:none;}
+		
+		
+		
+	</style>
+</head>
+<body>
+	
+	<div id="nav">
+		<ul>
+			<li><a onclick="getdata(1)" href="javascript:void(0)">时事</a></li>
+			<li><a onclick="getdata(2)" href="javascript:void(0)">娱乐</a></li>
+			<li><a onclick="getdata(3)" href="javascript:void(0)">体育</a></li>
+			<li><a onclick="getdata(4)"  href="javascript:void(0)">军事</a></li>
+		</ul>
+	</div>
+	
+	<div id="content">
+	
+		<ul>
+			<li></li>
+			<li></li>
+		</ul>
+	
+	</div>
+<script>
+
+	var getdata = function(type){
+		
+		$.ajax({
+		type:"get",
+		url:"data.php?type="+type,
+		dataType:"json",
+		success:function(data){
+			console.log('xx'+data);
+			var html='<ul>';
+			
+			for(var i=0;i<data.length;i++){
+				html+='<li>'+data[i].title+'</li>';
+			}
+			html+='</ul>';
+			console.log(html);
+			$("#content").html(html);
+		}
+	
+	})
+		
+	
+	}
+	
+</script>
+</body>
+</html>

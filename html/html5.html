@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<canvas id="mycancas" width="400" height="400" style="border:1px solid #c3c3c3;"></canvas>
+	
+	<script>
+		
+		var mycancas = document.getElementById("mycancas");
+		var cxt = mycancas.getContext("2d");
+		cxt.fillStyle="#FF0000"
+		cxt.beginPath();
+		cxt.arc(70,18,15,0,Math.PI*2,true);
+		cxt.closePath();
+		cxt.fill()
+		
+	</script>
+</body>
+</html>
