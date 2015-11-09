@@ -11,6 +11,7 @@
 #ul1 li:hover{ border-color: #9a9fa4; box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.85);}
 #ul1 .active{ border:1px dashed red;}
 </style>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
 <script type="text/javascript" src="move.js"></script>
 <script>
 window.onload = function() {
@@ -78,9 +79,15 @@ window.onload = function() {
 						startMove(oNear,aPos[obj.index]);
 						startMove(obj,aPos[oNear.index]);
 						//交换index
+						
 						oNear.index += obj.index;
 						obj.index = oNear.index - obj.index;
 						oNear.index = oNear.index - obj.index;
+						
+						var tmp = $(aLi[oNear.index]).attr('id');
+						$(aLi[oNear.index]).attr('id', $(aLi[obj.index]).attr('id'));
+						$(aLi[obj.index]).attr('id',tmp)
+						
 					}else{
 
 						startMove(obj,aPos[obj.index]);
@@ -125,6 +132,9 @@ window.onload = function() {
 					if(dis<minDis){
 						minDis = dis;
 						minIndex = i;
+						/*var tmp = $(aLi[i]).attr('id');
+						$(aLi[i]).attr('id',$(obj).attr('id'));
+						$(obj).attr('id',tmp);*/
 					}
 				}
 			}
@@ -133,18 +143,42 @@ window.onload = function() {
 			}else{
 				return aLi[minIndex];
 			}
-		}	
+		}
+
+		var getadvids = function(){
+			
+			tmpadvids = '';
+			
+			for(var i=0;i<aLi.length;i++){
+				tmpadvids+=$(aLi[i]).attr('id');
+			
+			}
+			
+			return tmpadvids;
+		}
+		
+		$('button').click(function(){
+		
+			var advids = getadvids();
+			
+			console.log(advids);
+		
+		})
+		
+		
 	}
+	
 </script>
 </head>
 <body>
+<button>点击获取advids</button>
 <ul id="ul1">
-	<li><img src="images/1.jpg" width="200" height="150" /></li>
-	<li><img src="images/2.jpg" width="200" height="150" /></li>
-	<li><img src="images/3.jpg" width="200" height="150" /></li>
-	<li><img src="images/4.jpg" width="200" height="150" /></li>
-	<li><img src="images/5.jpg" width="200" height="150" /></li>
-	<li><img src="images/6.jpg" width="200" height="150" /></li>
+	<li id="1"><img src="images/1.jpg" width="200" height="150" /></li>
+	<li  id="2"><img src="images/2.jpg" width="200" height="150" /></li>
+	<li  id="3"><img src="images/3.jpg" width="200" height="150" /></li>
+	<li  id="4"><img src="images/4.jpg" width="200" height="150" /></li>
+	<li  id="5"><img src="images/5.jpg" width="200" height="150" /></li>
+	<li  id="6"><img src="images/6.jpg" width="200" height="150" /></li>
 </ul>
 <div style="text-align:center;">
 <p>来源:<a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
